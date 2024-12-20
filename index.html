@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United East Trading - Jordan</title>
+    
+    <!-- Updated favicon settings with larger sizes -->
+    <link rel="icon" type="image/png" href="logo.png" sizes="512x512"> <!-- Much larger base size -->
+    <link rel="icon" type="image/png" href="logo.png" sizes="384x384">
+    <link rel="icon" type="image/png" href="logo.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="logo.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="logo.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="logo.png" sizes="96x96">
+    
+    <!-- For Apple devices with larger sizes -->
+    <link rel="apple-touch-icon" href="logo.png" sizes="512x512">
+    <link rel="apple-touch-icon" href="logo.png" sizes="256x256">
+    
+    <!-- For Microsoft with larger size -->
+    <meta name="msapplication-TileImage" content="logo.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    
+    <!-- Optional: Force browsers to use larger versions when possible -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and general styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Add smooth scrolling to the whole page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Updated color variables */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --text-light: #ffffff;
+            --text-dark: #2c3e50;
+        }
+
+        /* Updated Navigation Styles */
+        nav {
+            background-color: white;
+            padding: 0 2rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.25rem;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: auto 0;
+        }
+
+        .company-title {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Slideshow enhancements */
+        .slideshow-container {
+            height: 75vh;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+            background-color: var(--dark-bg);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9));
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 2rem;
+            max-width: 800px;
+        }
+
+        .company-name {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.4s forwards;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: var(--light-bg);
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .highlight-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .about-item {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .about-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .about-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), #c0392b);
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list, .awards-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li, .awards-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        .awards-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Animation trigger class */
+        .about-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .about-item, .about-item.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            .about-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .feature-list li, .awards-list li {
+                text-align: left;
+            }
+
+            .about-image {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 4rem 0;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .highlight-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 2rem 4rem;
+            background-color: white;
+        }
+
+        .products h2 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .products h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .products-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .product-card h3 {
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .product-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .product-list li {
+            color: #666;
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .product-list li::before {
+            content: '•';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Hover effect for list items */
+        .product-list li:hover {
+            color: var(--text-dark);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .products {
+                padding: 6rem 1.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .product-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animation for cards */
+        .product-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger animation for cards */
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Enhanced Contact Section Styles */
+        .contact {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a237e 100%);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .contact h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        .contact-info-wrapper {
+            padding: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.25);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .info-card {
+                flex: 1 1 250px;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 6rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .info-card {
+                flex: 1 1 100%;
+                max-width: none;
+            }
+        }
+
+        /* Animation for form submission */
+        @keyframes submitSuccess {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .submit-success {
+            animation: submitSuccess 0.5s ease;
+        }
+
+        /* Responsive adjustments for the logo */
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 40px;
+            }
+            
+            .company-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* For very small screens */
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Optional: Add these if you want to ensure the image covers differently sized screens */
+        @media (min-aspect-ratio: 16/9) {
+            .slide:first-child {
+                background-size: 100% auto;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .slide:first-child {
+                background-size: cover;
+                background-position: center 20%;
+            }
+        }
+
+        /* Media queries for different screen sizes */
+        @media (min-width: 1400px) {
+            .slide:first-child {
+                background-size: 100% auto;
+                background-position: center 10%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide:first-child {
+                background-size: cover;
+                background-position: center 20%;
+            }
+        }
+
+        /* This is just to show the concept - you'll need to create an actual image file */
+        .favicon-template {
+            width: 512px;
+            height: 512px;
+            padding: 60px; /* Adds space around the circular logo */
+            box-sizing: border-box;
+        }
+        .favicon-template img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* This helps maintain image quality when scaling */
+        link[rel="icon"] {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* Enhanced Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonials h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), #c0392b);
+        }
+
+        .testimonials-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto 4rem;
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.4s ease;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-color), #c0392b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .quote-icon i {
+            color: white;
+            font-size: 1.4rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .author-info h4 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .testimonials {
+                padding: 6rem 1.5rem;
+            }
+            
+            .testimonial-card {
+                padding: 3rem 1.5rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+            
+            .testimonials h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Updated Gallery Section */
+        .gallery-container {
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 0;
+            animation: flowAnimation 60s linear infinite;
+            width: max-content; /* Allows content to determine width */
+        }
+
+        .gallery-item {
+            flex: 0 0 300px; /* Fixed width for each item */
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            z-index: 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        @keyframes flowAnimation {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Gradient overlays for smooth transitions */
+        .gallery-container::before,
+        .gallery-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .gallery-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--light-bg), transparent);
+        }
+
+        .gallery-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--light-bg), transparent);
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), #c0392b);
+        }
+
+        .contact-section {
+            padding: 6rem 2rem;
+            background-color: #1a2634; /* Darker background color */
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            color: #a0aec0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-info-horizontal {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .icon-wrapper i {
+            font-size: 1.5rem;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-wrapper .fa-map-marker-alt {
+            transform: translate(-50%, -45%);
+        }
+
+        .contact-content h3 {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .contact-details {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        .contact-details span {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .contact-details a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #f85a4d;
+        }
+
+        @media (max-width: 992px) {
+            .contact-info-horizontal {
+                flex-direction: column;
+            }
+
+            .info-card {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-description {
+                padding: 0 1rem;
+            }
+        }
+
+        .contact-details p {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-details p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Adjust card width to accommodate longer address */
+        .info-card {
+            min-width: 300px;
+        }
+
+        .about-section {
+            padding: 6rem 0;
+            background: var(--light-bg);
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-item {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 8rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .about-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: transparent;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background-color: transparent;
+        }
+
+        .about-image:hover::before {
+            opacity: 1;
+            background-image: transparent;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            background-color: transparent;
+            background-image: transparent;
+
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 992px) {
+            .about-item, .about-item.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            .about-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .about-image {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+                background-color: transparent;
+                background-image: transparent;
+
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 4rem 0;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+        }
+
+        .awards-list {
+            list-style: none;
+            margin: 0.25rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .awards-list li {
+            position: relative;
+            margin-bottom: 0.25rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .awards-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+        }
+
+        /* Responsive adjustment */
+        @media (max-width: 768px) {
+            .awards-list {
+                text-align: left;
+                padding-left: 2rem;
+            }
+        }
+
+        /* Update the icon-container and about-image styles */
+        .about-image {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            background-image: transparent;
+        }
+
+        .icon-container {
+            width: 140px;
+            height: 140px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .icon-container i {
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        /* Remove any background or box effects */
+        .about-image {
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .icon-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .icon-container i {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Specific icon updates */
+        .icon-global i {
+            /* For Global Network section */
+            content: "\f0ac"; /* fa-globe-americas */
+        }
+
+        .icon-expertise i {
+            /* For Industry Expertise section */
+            content: "\f085"; /* fa-cogs */
+        }
+
+        .icon-excellence i {
+            /* For Excellence section */
+            content: "\f091"; /* fa-award */
+        }
+
+        /* Update About Section Header Styles */
+        .about h2 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), #c0392b);
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto 4rem;
+        }
+
+        /* Update section title styles for individual about items */
+        .about-text h2 {
+            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .about-text h2::after {
+            left: 0;
+            transform: none;
+            width: 60px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .about-text h2 {
+                text-align: center;
+            }
+
+            .about-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">
+                    <img src="logo.png" alt="United East Trading Logo" class="logo-image">
+                    <span class="company-title">United East Trading</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="slideshow-container">
+        <div class="slide active">
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h1 class="company-name">United East Trading</h1>
+                <p class="company-tagline">Leading Innovation in Jordan</p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h1 class="company-name">Global Excellence</h1>
+                <p class="company-tagline">Your Trusted Partner in Paper Trading Since 1990</p>
+                <a href="#about" class="cta-button">Our Story</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h1 class="company-name">Quality & Innovation</h1>
+                <p class="company-tagline">Premium Paper Products for Every Need</p>
+                <a href="#products" class="cta-button">Explore Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <h2>About United East Trading</h2>
+            <div class="about-intro">
+                <p class="highlight-text">Established in 1990, United East Trading has grown to become a leading force in the paper and board industry, known for our unwavering commitment to quality and innovation.</p>
+            </div>
+            
+            <div class="about-sections">
+                <div class="about-item">
+                    <div class="about-text">
+                        <h2>Global Network</h2>
+                        <p>As a trusted partner to manufacturers worldwide, we've built an extensive network spanning Asia and Europe. Our strategic partnerships with industry leaders enable us to:</p>
+                        <ul class="feature-list">
+                            <li>Source premium products from China, India, Indonesia, and Europe</li>
+                            <li>Deliver competitive advantages through established relationships</li>
+                            <li>Ensure reliable supply chains across international markets</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <div class="icon-container icon-global">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-item reverse">
+                    <div class="about-image">
+                        <div class="icon-container icon-expertise">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h2>Technical Excellence</h2>
+                        <p>Our expertise extends beyond traditional trading. We provide comprehensive solutions including:</p>
+                        <ul class="feature-list">
+                            <li>Strategic sourcing and supplier evaluation</li>
+                            <li>Rigorous quality control and testing</li>
+                            <li>Optimized logistics and supply chain management</li>
+                            <li>Technical consultation and product specifications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <div class="about-text">
+                        <h2>Industry Recognition</h2>
+                        <p>Our commitment to excellence has earned us multiple prestigious awards from Asia Pulp and Paper (APP):</p>
+                        <ul class="awards-list">
+                            <li>Outstanding Contribution in Promoting Carbonless and Preprint</li>
+                            <li>Commitment and Dedication to Excellence</li>
+                            <li>Highest Sales Achievement in Jordan Market</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <div class="icon-container icon-excellence">
+                            <i class="fas fa-award"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="products-intro">
+            <p>We offer a comprehensive range of high-quality paper and board products to meet diverse industry needs.</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <h3>Kraft Papers</h3>
+                <ul class="product-list">
+                    <li>MG Kraft Paper</li>
+                    <li>MF Kraft Paper</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-print"></i>
+                </div>
+                <h3>Printing Papers</h3>
+                <ul class="product-list">
+                    <li>Coated Art Paper</li>
+                    <li>WF Offset Paper</li>
+                    <li>Cream Offset Paper</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Boards</h3>
+                <ul class="product-list">
+                    <li>Folding Box Board</li>
+                    <li>SBS Board</li>
+                    <li>Duplex Grey Board</li>
+                    <li>Triplex Board</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <h3>Specialty Papers</h3>
+                <ul class="product-list">
+                    <li>NCR Paper</li>
+                    <li>Self Adhesive Paper</li>
+                    <li>Grease Proof Paper</li>
+                </ul>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Publishing Papers</h3>
+                <ul class="product-list">
+                    <li>Book Paper</li>
+                    <li>Newsprint</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Our Products Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.03.29 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.04.36 PM (1).jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.04.36 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.12.30 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.16.18 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.17.07 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.19.16 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.36.17 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.37.15 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.38.08 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.41.35 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.44.47 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.47.03 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.47.37 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.51.08 PM (1).jpeg" alt="Paper Product" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2024-12-20 at 8.51.08 PM.jpeg" alt="Paper Product" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Partners Say</h2>
+        <div class="testimonials-intro">
+            <p>Trusted by industry leaders and valued partners worldwide</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Yash Pakka supplies high quality MG paper, above all they do it with utmost proficiency. Looking forward to continuing our journey together and to strengthen our business relationship in the Jordan & Iraq market"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Yash Pakka</h4>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="section-description">
+                <p>We're here to assist you with any inquiries about our paper products and services</p>
+            </div>
+            <div class="contact-info-horizontal">
+                <div class="info-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3>Call Us</h3>
+                        <div class="contact-details">
+                            <p><span>Tel:</span> +962 6 5693146 / 5660510</p>
+                            <p><span>Mobile:</span> +962 6 79 5526001</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3>Email Us</h3>
+                        <div class="contact-details">
+                            <p><a href="mailto:samer@unitedeast.com">samer@unitedeast.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3>Visit Us</h3>
+                        <div class="contact-details">
+                            <p>Office #10, 3rd floor</p>
+                            <p>65, Yanal Center</p>
+                            <p>Abed Elhameed Sharaf St.</p>
+                            <p>Shmeisany, Amman</p>
+                            <p>Jordan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Slideshow functionality
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            // Remove active class from all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Update current slide index
+            currentSlide = (n + slides.length) % slides.length;
+            
+            // Add active class to new current slide
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Initialize first slide
+        showSlide(0);
+        
+        // Set interval for automatic sliding (increased from 5000 to 8000 milliseconds)
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 8000);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const aboutItems = document.querySelectorAll('.about-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            aboutItems.forEach(item => observer.observe(item));
+        });
+    </script>
+</body>
+</html>
