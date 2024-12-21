@@ -928,69 +928,10 @@
         }
 
         /* Updated Gallery Section */
-        .gallery-container {
-            max-width: 100%;
+        .gallery {
+            padding: 6rem 0 4rem;
+            background-color: var(--light-bg);
             overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-grid {
-            display: flex;
-            gap: 2rem;
-            padding: 2rem 0;
-            animation: flowAnimation 60s linear infinite;
-            width: max-content; /* Allows content to determine width */
-        }
-
-        .gallery-item {
-            flex: 0 0 300px; /* Fixed width for each item */
-            height: 250px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            z-index: 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        @keyframes flowAnimation {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Gradient overlays for smooth transitions */
-        .gallery-container::before,
-        .gallery-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 200px;
-            height: 100%;
-            z-index: 2;
-        }
-
-        .gallery-container::before {
-            left: 0;
-            background: linear-gradient(to right, var(--light-bg), transparent);
-        }
-
-        .gallery-container::after {
-            right: 0;
-            background: linear-gradient(to left, var(--light-bg), transparent);
         }
 
         .gallery h2 {
@@ -999,10 +940,6 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .gallery h2::after {
@@ -1016,9 +953,73 @@
             background: linear-gradient(to right, var(--secondary-color), #c0392b);
         }
 
+        .gallery-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .gallery-grid {
+            display: flex;
+            gap: 1rem;
+            animation: scroll 50s linear infinite;
+            width: max-content;
+        }
+
+        .gallery-item {
+            flex: 0 0 300px;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-300px * 15 - 1rem * 14)); /* Width of 15 images + 14 gaps */
+            }
+        }
+
+        /* Add hover pause functionality */
+        .gallery-container:hover .gallery-grid {
+            animation-play-state: paused;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex: 0 0 250px;
+                height: 170px;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-250px * 15 - 1rem * 14));
+                }
+            }
+        }
+
         .contact-section {
             padding: 6rem 2rem;
-            background-color: #1a2634; /* Darker background color */
+            background-color: #1a2634;
         }
 
         .contact-section h2 {
@@ -1469,7 +1470,7 @@
             <div class="overlay"></div>
             <div class="slide-content">
                 <h1 class="company-name">Global Excellence</h1>
-                <p class="company-tagline">Your Trusted Partner in Paper Trading Since 1990</p>
+                <p class="company-tagline">Your Trusted Partner in Paper Trading Since 1993</p>
                 <a href="#about" class="cta-button">Our Story</a>
             </div>
         </div>
@@ -1487,7 +1488,7 @@
         <div class="about-container">
             <h2>About United East Trading</h2>
             <div class="about-intro">
-                <p class="highlight-text">Established in 1990, United East Trading has grown to become a leading force in the paper and board industry, known for our unwavering commitment to quality and innovation.</p>
+                <p class="highlight-text">Established in 1993, United East Trading has grown to become a leading force in the paper and board industry, known for our unwavering commitment to quality and innovation.</p>
             </div>
             
             <div class="about-sections">
@@ -1597,6 +1598,7 @@
                     <li>NCR Paper</li>
                     <li>Self Adhesive Paper</li>
                     <li>Grease Proof Paper</li>
+                    <li>Bristol Board</li>
                 </ul>
             </div>
 
@@ -1608,6 +1610,7 @@
                 <ul class="product-list">
                     <li>Book Paper</li>
                     <li>Newsprint</li>
+                    <li>Photocopy Paper</li>
                 </ul>
             </div>
         </div>
@@ -1617,54 +1620,38 @@
         <h2>Our Products Gallery</h2>
         <div class="gallery-container">
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.03.29 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.04.36 PM (1).jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.04.36 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.12.30 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.16.18 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.17.07 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.19.16 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.36.17 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.37.15 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.38.08 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.41.35 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.44.47 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.47.03 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.47.37 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.51.08 PM (1).jpeg" alt="Paper Product" loading="lazy">
-                </div>
-                <div class="gallery-item">
-                    <img src="WhatsApp Image 2024-12-20 at 8.51.08 PM.jpeg" alt="Paper Product" loading="lazy">
-                </div>
+                <!-- First set of images -->
+                <div class="gallery-item"><img src="image1.jpeg" alt="Product 1"></div>
+                <div class="gallery-item"><img src="image2.jpeg" alt="Product 2"></div>
+                <div class="gallery-item"><img src="image3.jpeg" alt="Product 3"></div>
+                <div class="gallery-item"><img src="image4.jpeg" alt="Product 4"></div>
+                <div class="gallery-item"><img src="image5.jpeg" alt="Product 5"></div>
+                <div class="gallery-item"><img src="image6.jpeg" alt="Product 6"></div>
+                <div class="gallery-item"><img src="image7.jpeg" alt="Product 7"></div>
+                <div class="gallery-item"><img src="image8.jpeg" alt="Product 8"></div>
+                <div class="gallery-item"><img src="image9.jpeg" alt="Product 9"></div>
+                <div class="gallery-item"><img src="image10.jpeg" alt="Product 10"></div>
+                <div class="gallery-item"><img src="image11.jpeg" alt="Product 11"></div>
+                <div class="gallery-item"><img src="image12.jpeg" alt="Product 12"></div>
+                <div class="gallery-item"><img src="image13.jpeg" alt="Product 13"></div>
+                <div class="gallery-item"><img src="image14.jpeg" alt="Product 14"></div>
+                <div class="gallery-item"><img src="image15.jpeg" alt="Product 15"></div>
+                <!-- Duplicate set for smooth infinite loop -->
+                <div class="gallery-item"><img src="image1.jpeg" alt="Product 1"></div>
+                <div class="gallery-item"><img src="image2.jpeg" alt="Product 2"></div>
+                <div class="gallery-item"><img src="image3.jpeg" alt="Product 3"></div>
+                <div class="gallery-item"><img src="image4.jpeg" alt="Product 4"></div>
+                <div class="gallery-item"><img src="image5.jpeg" alt="Product 5"></div>
+                <div class="gallery-item"><img src="image6.jpeg" alt="Product 6"></div>
+                <div class="gallery-item"><img src="image7.jpeg" alt="Product 7"></div>
+                <div class="gallery-item"><img src="image8.jpeg" alt="Product 8"></div>
+                <div class="gallery-item"><img src="image9.jpeg" alt="Product 9"></div>
+                <div class="gallery-item"><img src="image10.jpeg" alt="Product 10"></div>
+                <div class="gallery-item"><img src="image11.jpeg" alt="Product 11"></div>
+                <div class="gallery-item"><img src="image12.jpeg" alt="Product 12"></div>
+                <div class="gallery-item"><img src="image13.jpeg" alt="Product 13"></div>
+                <div class="gallery-item"><img src="image14.jpeg" alt="Product 14"></div>
+                <div class="gallery-item"><img src="image15.jpeg" alt="Product 15"></div>
             </div>
         </div>
     </section>
@@ -1680,11 +1667,11 @@
                     <i class="fas fa-quote-right"></i>
                 </div>
                 <p class="testimonial-text">
-                    "Yash Pakka supplies high quality MG paper, above all they do it with utmost proficiency. Looking forward to continuing our journey together and to strengthen our business relationship in the Jordan & Iraq market"
+                    "Pakka Limited supplies high quality MG paper, above all they do it with utmost proficiency. Looking forward to continuing our journey together and to strengthen our business relationship in the Jordan & Iraq market"
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-info">
-                        <h4>Yash Pakka</h4>
+                    <div class="author-info"
+                        <h4>Pakka Limited</h4>
                         
                     </div>
                 </div>
@@ -1706,7 +1693,7 @@
                     <div class="contact-content">
                         <h3>Call Us</h3>
                         <div class="contact-details">
-                            <p><span>Tel:</span> +962 6 5693146 / 5660510</p>
+                            <p><span>Tel:</span> +962 6 5660510</p>
                             <p><span>Mobile:</span> +962 6 79 5526001</p>
                         </div>
                     </div>
