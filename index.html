@@ -1441,47 +1441,43 @@
         /* Mobile Navigation Styles */
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background-color: var(--secondary-color);
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 0.8rem;
             z-index: 1001;
+            border-radius: 4px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
         }
 
         .bar {
             display: block;
             width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: var(--text-dark);
+            height: 2px;
+            margin: 3px auto;
+            background-color: white;
             transition: all 0.3s ease;
+        }
+
+        /* Hover effect */
+        .mobile-menu-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Active state styles */
+        .mobile-menu-btn.active {
+            background-color: #c0392b;
         }
 
         @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 100%;
-                height: 100vh;
-                background-color: white;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.3s ease;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links li {
-                margin: 1.5rem 0;
+                display: flex;
             }
 
             /* Hamburger Animation */
@@ -1495,85 +1491,6 @@
 
             .mobile-menu-btn.active .bar:nth-child(3) {
                 transform: translateY(-8px) rotate(-45deg);
-            }
-
-            /* Adjust logo size for mobile */
-            .logo-image {
-                height: 40px;
-            }
-
-            .company-title {
-                font-size: 1.2rem;
-            }
-
-            /* Adjust hero section for mobile */
-            .company-name {
-                font-size: 2.5rem;
-            }
-
-            .company-tagline {
-                font-size: 1.2rem;
-            }
-
-            /* Adjust section paddings */
-            .about, .products, .gallery, .testimonials, .contact-section {
-                padding: 4rem 1rem;
-            }
-
-            /* Adjust headings */
-            h2 {
-                font-size: 2rem !important;
-            }
-
-            /* Adjust product cards */
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            /* Adjust gallery for mobile */
-            .gallery-item {
-                flex: 0 0 200px;
-                height: 150px;
-            }
-
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(calc(-200px * 15 - 1rem * 14));
-                }
-            }
-
-            /* Adjust contact cards */
-            .contact-info-horizontal {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .info-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Additional responsive adjustments */
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .company-name {
-                font-size: 2rem;
-            }
-
-            .company-tagline {
-                font-size: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
             }
         }
     </style>
