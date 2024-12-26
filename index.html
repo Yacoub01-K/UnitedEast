@@ -138,6 +138,7 @@
 
         /* Slideshow enhancements */
         .slideshow-container {
+            margin-top: 70px; /* Add space below the fixed navigation */
             height: 75vh;
             position: relative;
             overflow: hidden;
@@ -1549,6 +1550,55 @@
         .nav-container {
             position: relative;
             z-index: 1001;
+        }
+
+        /* Slideshow container adjustments */
+        .slideshow-container {
+            margin-top: 70px; /* Add space below the fixed navigation */
+            height: 75vh;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+            background-color: var(--dark-bg);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .slideshow-container {
+                margin-top: 70px; /* Maintain space on mobile */
+                height: 70vh; /* Slightly shorter on mobile */
+            }
+
+            /* Adjust slide content for better mobile viewing */
+            .slide-content {
+                padding: 0 1.5rem;
+            }
+
+            .company-name {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .company-tagline {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* For very small screens */
+        @media (max-width: 480px) {
+            .slideshow-container {
+                margin-top: 60px; /* Slightly less space on very small screens */
+                height: 60vh;
+            }
+
+            .company-name {
+                font-size: 2rem;
+            }
+
+            .company-tagline {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
