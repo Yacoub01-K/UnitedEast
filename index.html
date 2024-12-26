@@ -1493,6 +1493,56 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
         }
+
+        /* Navigation and Mobile Menu Styles */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Height of the nav bar */
+                right: -100%; /* Start off-screen */
+                width: 100%;
+                height: calc(100vh - 70px); /* Full height minus nav bar */
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                transition: 0.3s ease;
+                z-index: 1000;
+                padding-top: 2rem;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .nav-links.active {
+                right: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Ensure the nav container stays above other content */
+        .nav-container {
+            position: relative;
+            z-index: 1001;
+        }
     </style>
 </head>
 <body>
@@ -1837,9 +1887,17 @@
             const navLinksItems = document.querySelectorAll('.nav-links a');
 
             // Toggle mobile menu
-            mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event from bubbling
                 mobileMenuBtn.classList.toggle('active');
                 navLinks.classList.toggle('active');
+                
+                // Toggle body scroll
+                if (navLinks.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
             });
 
             // Close mobile menu when clicking a link
@@ -1847,6 +1905,7 @@
                 item.addEventListener('click', function() {
                     mobileMenuBtn.classList.remove('active');
                     navLinks.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 });
             });
 
@@ -1855,14 +1914,6 @@
                 if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     mobileMenuBtn.classList.remove('active');
                     navLinks.classList.remove('active');
-                }
-            });
-
-            // Prevent scroll when mobile menu is open
-            mobileMenuBtn.addEventListener('click', function() {
-                if (navLinks.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
                     document.body.style.overflow = 'auto';
                 }
             });
