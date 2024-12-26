@@ -1440,7 +1440,7 @@
 
         /* Mobile Navigation Styles */
         .mobile-menu-btn {
-            display: none;
+            display: none; /* Hidden by default on desktop */
             background-color: var(--secondary-color);
             border: none;
             cursor: pointer;
@@ -1449,7 +1449,6 @@
             border-radius: 4px;
             width: 45px;
             height: 45px;
-            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -1475,9 +1474,10 @@
             background-color: #c0392b;
         }
 
+        /* Only show mobile menu button on screens <= 768px */
         @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: flex;
+                display: flex; /* Show only on mobile */
             }
 
             /* Hamburger Animation */
