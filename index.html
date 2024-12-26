@@ -1492,6 +1492,41 @@
             .mobile-menu-btn {
                 display: flex; /* Show only on mobile */
             }
+
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Height of the nav bar */
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                transition: 0.3s ease;
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                padding-top: 3rem; /* Increased padding at the top */
+            }
+
+            .nav-links.active {
+                right: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0; /* Increased spacing between menu items */
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                display: block;
+            }
         }
 
         /* Navigation and Mobile Menu Styles */
