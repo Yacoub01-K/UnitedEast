@@ -1474,23 +1474,23 @@
             background-color: #c0392b;
         }
 
+        /* Hamburger Animation */
+        .mobile-menu-btn.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
         /* Only show mobile menu button on screens <= 768px */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: flex; /* Show only on mobile */
-            }
-
-            /* Hamburger Animation */
-            .mobile-menu-btn.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-btn.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .mobile-menu-btn.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
             }
         }
 
